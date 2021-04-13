@@ -27,22 +27,22 @@ const randomTextColor = () => {
 };
 randomTextColor();
 
-ballContainer.addEventListener('click', (event) => {
-  const ballSelected = event.target;
-  if (ballSelected.style.backgroundColor !== correctColor.innerText) {
-    answer.innerText = 'Errou! Tente novamente!';
-    if (score > 0) {
-      score -= 1;
-    }
-  }
-  if (ballSelected.style.backgroundColor === correctColor.innerText) {
-    answer.innerText = 'Acertou!';
-    score += 3;
-  }
-  scoreText.innerText = score;
-  ballColorGenerator();
-  randomTextColor();
-});
+// ballContainer.addEventListener('click', (event) => {
+//   const ballSelected = event.target;
+//   if (ballSelected.style.backgroundColor !== correctColor.innerText) {
+//     answer.innerText = 'Errou! Tente novamente!';
+//     if (score > 0) {
+//       score -= 1;
+//     }
+//   }
+//   if (ballSelected.style.backgroundColor === correctColor.innerText) {
+//     answer.innerText = 'Acertou!';
+//     score += 3;
+//   }
+//   scoreText.innerText = score;
+//   ballColorGenerator();
+//   randomTextColor();
+// });
 
 // btnReset.addEventListener('click', () => {
 //   answer.innerText = 'Escolha uma cor';
