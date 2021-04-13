@@ -2,6 +2,8 @@ const circleContainer = document.getElementById('color-array');
 const circleArray = circleContainer.children;
 const statusText = document.getElementById('answer');
 let canChoose;
+let currentScore = 0;
+const scoreElement = document.getElementById('score');
 
 function changeAllCircleStates(enabled) {
   for (let i = 0; i < circleArray.length; i += 1) {
@@ -11,6 +13,22 @@ function changeAllCircleStates(enabled) {
       circleArray[i].classList.add('disabled');
     }
   }
+}
+
+function updateScore(scoreChange) {
+  currentScore += scoreChange;
+
+  scoreElement.innerText = currentScore;
+}
+
+function handleCorrectAnswer() {
+  statusText.innerText = 'Acertou!';
+  updateScore(+3);
+}
+
+function handleWrongAnswer() {
+  statusText.innerText = 'Errou! Tente novamente!';
+  updateScore(-1);
 }
 
 function handleChoiceClick(e) {
@@ -28,14 +46,6 @@ function handleChoiceClick(e) {
 
   canChoose = false;
   changeAllCircleStates(false);
-}
-
-function handleCorrectAnswer() {
-  statusText.innerText = 'Acertou!';
-}
-
-function handleWrongAnswer() {
-  statusText.innerText = 'Errou! Tente novamente!';
 }
 
 function createOptions(numberOfOptions) {
