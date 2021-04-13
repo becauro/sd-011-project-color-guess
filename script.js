@@ -8,9 +8,9 @@ const resetScore = document.querySelector('#reset-score');
 let score = 0;
 
 const randomRgbColor = () => {
-  let color1 = Math.round(Math.random() * 255);
-  let color2 = Math.round(Math.random() * 255);
-  let color3 = Math.round(Math.random() * 255);
+  const color1 = Math.round(Math.random() * 255);
+  const color2 = Math.round(Math.random() * 255);
+  const color3 = Math.round(Math.random() * 255);
   return `rgb(${color1}, ${color2}, ${color3})`;
 };
 

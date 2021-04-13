@@ -23,6 +23,7 @@ body {
 
 #rgb-color {
   margin-top: 30px;
+  font-size: 20px;
 }
 
 .score {
@@ -34,6 +35,7 @@ body {
 #score {
   display: inline-block;
   font-size: 20px;
+  margin-top: 30px;
 }
 
 h1 {
@@ -41,15 +43,7 @@ h1 {
   font-size: 40px;
 }
 
-#rgb-color {
-  font-size: 20px;
-}
-
 #ball-container {
-  margin-top: 30px;
-}
-
-#score {
   margin-top: 30px;
 }
 
@@ -68,8 +62,8 @@ h2 {
   font-size: 20px;
 }
 
-#reset-game,
-#reset-score {
+#reset-game
+,#reset-score {
   margin-top: 20px;
   padding: 5px 20px;
   margin-left: 5px;
@@ -84,7 +78,7 @@ h2 {
   transition: 1s;
 }
 
-#reset-game:not( :hover ) {
+#reset-game:not(:hover) {
   background-color: #eceff4;
   transition: 1s;
 }
@@ -95,7 +89,7 @@ h2 {
   transition: 1s;
 }
 
-#reset-score:not( :hover ) {
+#reset-score:not(:hover) {
   background-color: #eceff4;
   transition: 1s;
 }
