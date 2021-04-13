@@ -49,3 +49,7 @@ btnReset.addEventListener('click', () => {
   ballColorGenerator();
   randomTextColor();
 });
+
+resetScore.addEventListener('click', () => {
+  scoreText.innerText = 0;
+});
