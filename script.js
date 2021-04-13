@@ -22,33 +22,33 @@ const ballColorGenerator = () => {
 ballColorGenerator();
 
 const randomTextColor = () => {
-  const randomColor = Math.round(Math.random() * 6);
+  const randomColor = Math.round(Math.random() * 5);
   correctColor.innerText = balls[randomColor].style.backgroundColor;
 };
-randomTextColor();
 
-// ballContainer.addEventListener('click', (event) => {
-//   const ballSelected = event.target;
-//   if (ballSelected.style.backgroundColor !== correctColor.innerText) {
-//     answer.innerText = 'Errou! Tente novamente!';
-//     if (score > 0) {
-//       score -= 1;
-//     }
-//   }
-//   if (ballSelected.style.backgroundColor === correctColor.innerText) {
-//     answer.innerText = 'Acertou!';
-//     score += 3;
-//   }
-//   scoreText.innerText = score;
-//   ballColorGenerator();
-//   randomTextColor();
-// });
+ballContainer.addEventListener('click', (event) => {
+  const ballSelected = event.target;
+  if (ballSelected.style.backgroundColor !== correctColor.innerText) {
+    answer.innerText = 'Errou! Tente novamente!';
+    if (score > 0) {
+      score -= 1;
+    }
+  }
+  if (ballSelected.style.backgroundColor === correctColor.innerText) {
+    answer.innerText = 'Acertou!';
+    score += 3;
+  }
+  scoreText.innerText = score;
+  ballColorGenerator();
+  randomTextColor();
+  console.log(randomTextColor());
+});
 
-// btnReset.addEventListener('click', () => {
-//   answer.innerText = 'Escolha uma cor';
-//   ballColorGenerator();
-//   randomTextColor();
-// });
+btnReset.addEventListener('click', () => {
+  answer.innerText = 'Escolha uma cor';
+  ballColorGenerator();
+  randomTextColor();
+});
 
 resetScore.addEventListener('click', () => {
   scoreText.innerText = 0;
