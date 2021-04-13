@@ -5,6 +5,7 @@ header {
 
 #rgb-color {
   text-align: center;
+  font-size: larger;
 }
 
 #color-options {
@@ -17,9 +18,14 @@ header {
   display: inline-block;
   width: 50px;
   height: 50px;
-  background-color: red;
   border-radius: 100%;
   border: solid black 1px;
   margin: 5px;
-  
+}
+
+#game-status {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  font-size: larger;
 }
