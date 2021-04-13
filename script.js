@@ -13,3 +13,10 @@ const randomRgbColor = () => {
   let color3 = Math.round(Math.random() * 255);
   return `rgb(${color1}, ${color2}, ${color3})`;
 };
+
+const ballColorGenerator = () => {
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].style.backgroundColor = randomRgbColor();
+  }
+};
+ballColorGenerator();
