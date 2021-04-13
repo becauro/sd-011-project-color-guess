@@ -25,6 +25,7 @@ const randomTextColor = () => {
   const randomColor = Math.round(Math.random() * 5);
   correctColor.innerText = balls[randomColor].style.backgroundColor;
 };
+randomTextColor();
 
 ballContainer.addEventListener('click', (event) => {
   const ballSelected = event.target;
@@ -41,7 +42,6 @@ ballContainer.addEventListener('click', (event) => {
   scoreText.innerText = score;
   ballColorGenerator();
   randomTextColor();
-  console.log(randomTextColor());
 });
 
 btnReset.addEventListener('click', () => {
