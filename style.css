@@ -29,3 +29,8 @@ header {
   font-weight: 600;
   font-size: larger;
 }
+
+#score-container {
+  text-align: center;
+  margin-top: 15px;
+}

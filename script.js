@@ -18,8 +18,6 @@ function fillColorOptions() {
   colorGen(6);
   for (let index = 0; index < colorList.length; index += 1) {
     colorBalls[index].style.backgroundColor = colorList[index];
-    console.log(index);
-    console.log(colorList.length)
   }
   const correctColorIndex = Math.floor(Math.random() * 6);
   colorBalls[correctColorIndex].id = 'answer';
@@ -31,7 +29,9 @@ function fillColorOptions() {
 fillColorOptions();
 
 function checkColor() {
-  statusText.innerText = 'Escolha uma cor'
+  statusText.innerText = 'Escolha uma cor';
+  let currentScore = parseInt(document.getElementById('score').innerText, 10);
+  
   for (let index = 0; index < colorBalls.length; index += 1) {
     colorBalls[index].addEventListener('click', (event) => {
       let correctColor = document.getElementById('rgb-color').innerText;
@@ -40,6 +40,9 @@ function checkColor() {
       selectedColor.id = 'answer';
       if (correctColor === selectedColor.style.backgroundColor) {
         statusText.innerText = 'Acertou!';
+        currentScore = currentScore + 3
+        document.getElementById('score').innerText = currentScore
+        
       } else {
         statusText.innerText = 'Errou! Tente novamente';
       }
