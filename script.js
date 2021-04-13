@@ -1,0 +1,10 @@
+function generateRandomRGB() {
+  const container = document.querySelector('#rgb-color');
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  const randomRGB = '(' + r + ', ' + g + ', ' + b + ')';
+  container.innerText = randomRGB;
+}
+
+generateRandomRGB();
