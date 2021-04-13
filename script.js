@@ -33,3 +33,22 @@ function generateColorBalls() {
 }
 
 generateColorBalls();
+
+function clickInTheBalls() {
+  const ballsArray = document.getElementsByClassName('ball');
+  const answerText = document.querySelector('#answer');
+  for (let index = 0; index < ballsArray.length; index += 1) {
+    const ball = ballsArray[index];
+    ball.addEventListener('click', () => {
+      const ballColor = ball.style.backgroundColor;
+      const correctColor = `rgb${currentRGB}`;
+      if (ballColor === correctColor) {
+        answerText.innerText = 'Acertou!';
+      } else {
+        answerText.innerText = 'Errou! Tente novamente!';
+      }
+    });
+  }
+}
+
+clickInTheBalls();
