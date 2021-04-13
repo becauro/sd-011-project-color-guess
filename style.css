@@ -3,3 +3,49 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+header {
+  position: sticky;
+  text-align: center;
+  padding: 24px 0;
+}
+
+main {
+  text-align: center;
+  min-height: 85vh;
+}
+
+#color-game h1 {
+  margin-bottom: 18px;
+  font-size: 1.35rem;
+}
+
+#rgb-color {
+  margin-bottom: 36px;
+  user-select: none;
+  font-size: 1.15rem;
+}
+
+#color-array {
+  list-style: none;
+  margin-bottom: 36px;
+}
+
+.ball {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: aqua;
+  margin-right: 8px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.ball:last-child {
+  margin-right: 0;
+}
+
+footer {
+  text-align: center;
+}
