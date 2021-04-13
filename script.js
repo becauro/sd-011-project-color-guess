@@ -43,3 +43,9 @@ ballContainer.addEventListener('click', (event) => {
   ballColorGenerator();
   randomTextColor();
 });
+
+btnReset.addEventListener('click', () => {
+  answer.innerText = 'Escolha uma cor';
+  ballColorGenerator();
+  randomTextColor();
+});
