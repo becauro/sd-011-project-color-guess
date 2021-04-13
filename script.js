@@ -1,6 +1,36 @@
 const circleContainer = document.getElementById('color-array');
 const circleArray = circleContainer.children;
 
+function handleChoiceClick(e) {
+  const clickedCirlce = e.target;
+
+  if (clickedCirlce === answerElement) {
+    handleCorrectAnswer();
+  } else {
+    handleWrongAnswer();
+  }
+}
+
+const statusText = document.getElementById('answer');
+
+function handleCorrectAnswer() {
+  console.log('correto');
+}
+
+function handleWrongAnswer() {
+  console.log('errado');
+}
+
+function createOptions(numberOfOptions) {
+  for (let i = 0; i < numberOfOptions; i += 1) {
+    const newOption = document.createElement('li');
+    newOption.classList.add('ball');
+    newOption.addEventListener('click', handleChoiceClick);
+
+    circleContainer.appendChild(newOption);
+  }
+}
+
 function getRandomRGBColorString() {
   let finalString = '(';
 
@@ -15,15 +45,6 @@ function getRandomRGBColorString() {
 
   finalString += ')';
   return finalString;
-}
-
-function createOptions(numberOfOptions) {
-  for (let i = 0; i < numberOfOptions; i += 1) {
-    const newOption = document.createElement('li');
-    newOption.classList.add('ball');
-
-    circleContainer.appendChild(newOption);
-  }
 }
 
 function assignRandomColors() {
