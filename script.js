@@ -1,3 +1,5 @@
+const colorOptions = 6;
+
 function generateRandomRGB() {
   const container = document.querySelector('#rgb-color');
   const r = Math.floor(Math.random() * 256);
@@ -8,3 +10,14 @@ function generateRandomRGB() {
 }
 
 generateRandomRGB();
+
+function generateColorBalls() {
+  const container = document.querySelector('#circle-container');
+  for (let index = 0; index < colorOptions; index += 1) {
+    const ball = document.createElement('div');
+    ball.className = 'ball';
+    container.appendChild(ball);
+  }
+}
+
+generateColorBalls();
