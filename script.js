@@ -1,5 +1,6 @@
 const colorOptions = 6;
 let currentRGB = '';
+let canPlay = true;
 
 function generateRandomRGB() {
   const r = Math.floor(Math.random() * 256);
@@ -18,15 +19,35 @@ function randomRGBText() {
 
 randomRGBText();
 
+function sumScore(score) {
+  let scoreNum = parseInt(score.innerText, 10);
+  scoreNum += 3;
+  return scoreNum;
+}
+
+function subtractScore(score) {
+  let scoreNum = parseInt(score.innerText, 10);
+  if (scoreNum > 0) {
+    scoreNum -= 1;
+  }
+  return scoreNum;
+}
+
 function clickInTheBalls(ball) {
   const answerText = document.querySelector('#answer');
+  const score = document.querySelector('#score');
   ball.addEventListener('click', () => {
-    const ballColor = ball.style.backgroundColor;
-    const correctColor = `rgb${currentRGB}`;
-    if (ballColor === correctColor) {
-      answerText.innerText = 'Acertou!';
-    } else {
-      answerText.innerText = 'Errou! Tente novamente!';
+    if (canPlay) {
+      const ballColor = ball.style.backgroundColor;
+      const correctColor = `rgb${currentRGB}`;
+      if (ballColor === correctColor) {
+        answerText.innerText = 'Acertou!';
+        score.innerText = sumScore(score);
+      } else {
+        answerText.innerText = 'Errou! Tente novamente!';
+        score.innerText = subtractScore(score);
+      }
+      canPlay = false;
     }
   });
 }
@@ -57,6 +78,7 @@ function resetGameButton() {
     randomRGBText();
     generateColorBalls();
     answerText.innerText = 'Escolha uma cor';
+    canPlay = true;
   });
 }
 

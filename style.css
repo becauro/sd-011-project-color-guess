@@ -5,3 +5,7 @@
   height: 50px;
   display: inline-block;
 }
+
+#score {
+  font-style: normal;
+}
