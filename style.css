@@ -46,6 +46,23 @@ main {
   margin-right: 0;
 }
 
+#status-container {
+  margin-bottom: 24px;
+}
+
+#status-container > span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#status-current {
+  font-weight: bold;
+}
+
+#score-current {
+  font-weight: bold;
+}
+
 footer {
   text-align: center;
 }
