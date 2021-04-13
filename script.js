@@ -51,5 +51,5 @@ btnReset.addEventListener('click', () => {
 });
 
 resetScore.addEventListener('click', () => {
-  scoreText.innerText = 0;
+  scoreText.innerText = 0 ;
 });
