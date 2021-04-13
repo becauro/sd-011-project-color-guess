@@ -46,6 +46,10 @@ main {
   margin-right: 0;
 }
 
+.disabled {
+  cursor: not-allowed;
+}
+
 #status-container {
   margin-bottom: 24px;
 }

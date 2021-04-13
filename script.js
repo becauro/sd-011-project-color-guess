@@ -1,7 +1,23 @@
 const circleContainer = document.getElementById('color-array');
 const circleArray = circleContainer.children;
+const statusText = document.getElementById('answer');
+let canChoose;
+
+function changeAllCircleStates(enabled) {
+  for (let i = 0; i < circleArray.length; i += 1) {
+    if (enabled) {
+      circleArray[i].classList.remove('disabled');
+    } else {
+      circleArray[i].classList.add('disabled');
+    }
+  }
+}
 
 function handleChoiceClick(e) {
+  if (!canChoose) {
+    return;
+  }
+
   const clickedCirlce = e.target;
 
   if (clickedCirlce === answerElement) {
@@ -9,16 +25,17 @@ function handleChoiceClick(e) {
   } else {
     handleWrongAnswer();
   }
+
+  canChoose = false;
+  changeAllCircleStates(false);
 }
 
-const statusText = document.getElementById('answer');
-
 function handleCorrectAnswer() {
-  console.log('correto');
+  statusText.innerText = 'Acertou!';
 }
 
 function handleWrongAnswer() {
-  console.log('errado');
+  statusText.innerText = 'Errou! Tente novamente!';
 }
 
 function createOptions(numberOfOptions) {
@@ -80,6 +97,18 @@ function assignRandomAnswer() {
   questionString.innerText = rgbString;
 }
 
+function draftNewGame() {
+  assignRandomColors();
+  assignRandomAnswer();
+
+  statusText.innerText = 'Escolha uma cor acima';
+  canChoose = true;
+  changeAllCircleStates(true);
+}
+
+const resetGameButton = document.getElementById('reset-game');
+
+resetGameButton.addEventListener('click', draftNewGame);
+
 createOptions(6);
-assignRandomColors();
-assignRandomAnswer();
+draftNewGame();
