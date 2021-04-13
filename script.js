@@ -1,6 +1,7 @@
 const circleContainer = document.getElementById('color-array');
 const circleArray = circleContainer.children;
 const statusText = document.getElementById('answer');
+let answerElement;
 let canChoose;
 let currentScore = 0;
 const scoreElement = document.getElementById('score');
@@ -77,7 +78,7 @@ function getRandomRGBColorString() {
 function assignRandomColors() {
   for (let i = 0; i < circleArray.length; i += 1) {
     const rgbString = getRandomRGBColorString();
-    circleArray[i].style.backgroundColor = 'rgb' + rgbString;
+    circleArray[i].style.backgroundColor = `rgb${rgbString}`;
   }
 }
 
@@ -94,8 +95,6 @@ function getRGBStringFromCircle(index) {
 
   return rgbString;
 }
-
-let answerElement;
 
 function assignRandomAnswer() {
   const answerIndex = getRandomIndex();
