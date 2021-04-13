@@ -1,0 +1,107 @@
+body {
+  background-color: #eceff4;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  color: #252525;
+}
+
+.ball {
+  list-style: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.ball:hover {
+  cursor: pointer;
+}
+
+#rgb-color {
+  margin-top: 30px;
+}
+
+.score {
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+#score {
+  display: inline-block;
+  font-size: 20px;
+}
+
+h1 {
+  margin-top: 30px;
+  font-size: 40px;
+}
+
+#rgb-color {
+  font-size: 20px;
+}
+
+#ball-container {
+  margin-top: 30px;
+}
+
+#score {
+  margin-top: 30px;
+}
+
+h2 {
+  margin-top: 50px;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#answer {
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+#reset-game,
+#reset-score {
+  margin-top: 20px;
+  padding: 5px 20px;
+  margin-left: 5px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#reset-game:hover {
+  cursor: pointer;
+  background-color: #fd2155;
+  transition: 1s;
+}
+
+#reset-game:not( :hover ) {
+  background-color: #eceff4;
+  transition: 1s;
+}
+
+#reset-score:hover {
+  cursor: pointer;
+  background-color: #05fdd8;
+  transition: 1s;
+}
+
+#reset-score:not( :hover ) {
+  background-color: #eceff4;
+  transition: 1s;
+}
+
+.details {
+  max-width: 300px;
+  margin: 0 auto;
+  margin-top: 10px;
+}
