@@ -1,5 +1,7 @@
-const colorList = [];
+let colorList = [];
 const colorBalls = document.getElementsByClassName('ball');
+const statusText = document.getElementById('game-status');
+const resetButton = document.getElementById('reset-game');
 
 function colorGen(n) {
   for (let index = 0; index < n; index += 1) {
@@ -16,6 +18,8 @@ function fillColorOptions() {
   colorGen(6);
   for (let index = 0; index < colorList.length; index += 1) {
     colorBalls[index].style.backgroundColor = colorList[index];
+    console.log(index);
+    console.log(colorList.length)
   }
   const correctColorIndex = Math.floor(Math.random() * 6);
   colorBalls[correctColorIndex].id = 'answer';
@@ -27,7 +31,7 @@ function fillColorOptions() {
 fillColorOptions();
 
 function checkColor() {
-  document.getElementById('game-status').innerText = 'Escolha uma cor'
+  statusText.innerText = 'Escolha uma cor'
   for (let index = 0; index < colorBalls.length; index += 1) {
     colorBalls[index].addEventListener('click', (event) => {
       let correctColor = document.getElementById('rgb-color').innerText;
@@ -35,11 +39,20 @@ function checkColor() {
       const selectedColor = event.target;
       selectedColor.id = 'answer';
       if (correctColor === selectedColor.style.backgroundColor) {
-        document.getElementById('game-status').innerText = 'Acertou!';
+        statusText.innerText = 'Acertou!';
       } else {
-        document.getElementById('game-status').innerText = 'Errou! Tente novamente';
+        statusText.innerText = 'Errou! Tente novamente';
       }
     });
   }
 }
 checkColor();
+
+function reset() {
+  resetButton.addEventListener('click', () => {
+    colorList = [];
+    fillColorOptions();
+    checkColor();
+  })
+}
+reset();
