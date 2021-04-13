@@ -50,6 +50,6 @@ randomTextColor();
 //   randomTextColor();
 // });
 
-// resetScore.addEventListener('click', () => {
-//   scoreText.innerText = 0;
-// });
+resetScore.addEventListener('click', () => {
+  scoreText.innerText = 0;
+});
