@@ -44,12 +44,12 @@ ballContainer.addEventListener('click', (event) => {
   randomTextColor();
 });
 
-btnReset.addEventListener('click', () => {
-  answer.innerText = 'Escolha uma cor';
-  ballColorGenerator();
-  randomTextColor();
-});
+// btnReset.addEventListener('click', () => {
+//   answer.innerText = 'Escolha uma cor';
+//   ballColorGenerator();
+//   randomTextColor();
+// });
 
-resetScore.addEventListener('click', () => {
-  scoreText.innerText = 0 ;
-});
+// resetScore.addEventListener('click', () => {
+//   scoreText.innerText = 0;
+// });
