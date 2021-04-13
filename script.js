@@ -10,6 +10,7 @@ function generateRandomRGB() {
 }
 
 function randomRGBText() {
+  currentRGB = '';
   const container = document.querySelector('#rgb-color');
   currentRGB = generateRandomRGB();
   container.innerText = currentRGB;
@@ -17,9 +18,23 @@ function randomRGBText() {
 
 randomRGBText();
 
+function clickInTheBalls(ball) {
+  const answerText = document.querySelector('#answer');
+  ball.addEventListener('click', () => {
+    const ballColor = ball.style.backgroundColor;
+    const correctColor = `rgb${currentRGB}`;
+    if (ballColor === correctColor) {
+      answerText.innerText = 'Acertou!';
+    } else {
+      answerText.innerText = 'Errou! Tente novamente!';
+    }
+  });
+}
+
 function generateColorBalls() {
   const container = document.querySelector('#circle-container');
   const selectedBall = Math.floor(Math.random() * 6);
+  container.innerHTML = '';
   for (let index = 0; index < colorOptions; index += 1) {
     const ball = document.createElement('div');
     ball.className = 'ball';
@@ -29,26 +44,20 @@ function generateColorBalls() {
     } else {
       ball.style.backgroundColor = `rgb${generateRandomRGB()}`;
     }
+    clickInTheBalls(ball);
   }
 }
 
 generateColorBalls();
 
-function clickInTheBalls() {
-  const ballsArray = document.getElementsByClassName('ball');
+function resetGameButton() {
+  const btnResetGame = document.querySelector('#reset-game');
   const answerText = document.querySelector('#answer');
-  for (let index = 0; index < ballsArray.length; index += 1) {
-    const ball = ballsArray[index];
-    ball.addEventListener('click', () => {
-      const ballColor = ball.style.backgroundColor;
-      const correctColor = `rgb${currentRGB}`;
-      if (ballColor === correctColor) {
-        answerText.innerText = 'Acertou!';
-      } else {
-        answerText.innerText = 'Errou! Tente novamente!';
-      }
-    });
-  }
+  btnResetGame.addEventListener('click', () => {
+    randomRGBText();
+    generateColorBalls();
+    answerText.innerText = 'Escolha uma cor';
+  });
 }
 
-clickInTheBalls();
+resetGameButton();
