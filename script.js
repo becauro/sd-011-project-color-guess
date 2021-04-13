@@ -1,6 +1,6 @@
 let colorList = [];
 const colorBalls = document.getElementsByClassName('ball');
-const statusText = document.getElementById('game-status');
+const statusText = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
 
 function colorGen(n) {
@@ -20,7 +20,7 @@ function fillColorOptions() {
     colorBalls[index].style.backgroundColor = colorList[index];
   }
   const correctColorIndex = Math.floor(Math.random() * 6);
-  colorBalls[correctColorIndex].id = 'answer';
+  //colorBalls[correctColorIndex].id = 'answer';
   const correctColor = colorList[correctColorIndex];
   const formattedCorrectColor = correctColor.replace('rgb', '');
   document.getElementById('rgb-color').innerText = formattedCorrectColor;
@@ -37,7 +37,7 @@ function checkColor() {
       let correctColor = document.getElementById('rgb-color').innerText;
       correctColor = `rgb${correctColor}`;
       const selectedColor = event.target;
-      selectedColor.id = 'answer';
+      //selectedColor.id = 'answer';
       if (correctColor === selectedColor.style.backgroundColor) {
         statusText.innerText = 'Acertou!';
         currentScore = currentScore + 3
