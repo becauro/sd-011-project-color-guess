@@ -20,3 +20,9 @@ const ballColorGenerator = () => {
   }
 };
 ballColorGenerator();
+
+const randomTextColor = () => {
+  const randomColor = Math.round(Math.random() * 6);
+  correctColor.innerText = balls[randomColor].style.backgroundColor;
+};
+randomTextColor();
