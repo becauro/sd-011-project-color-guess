@@ -27,7 +27,7 @@ function fillColorOptions() {
 fillColorOptions();
 
 function checkColor() {
-  
+  document.getElementById('game-status').innerText = 'Escolha uma cor'
   for (let index = 0; index < colorBalls.length; index += 1) {
     colorBalls[index].addEventListener('click', (event) => {
       let correctColor = document.getElementById('rgb-color').innerText;
@@ -37,7 +37,7 @@ function checkColor() {
       if (correctColor === selectedColor.style.backgroundColor) {
         document.getElementById('game-status').innerText = 'Acertou!';
       } else {
-        document.getElementById('game-status').innerText = 'Errou! Tente novamente!';
+        document.getElementById('game-status').innerText = 'Errou! Tente novamente';
       }
     });
   }
