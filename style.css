@@ -62,8 +62,16 @@ h2 {
   font-size: 20px;
 }
 
-#reset-game
-,#reset-score {
+#reset-game {
+  margin-top: 20px;
+  padding: 5px 20px;
+  margin-left: 5px;
+  background: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#reset-score {
   margin-top: 20px;
   padding: 5px 20px;
   margin-left: 5px;
@@ -78,7 +86,7 @@ h2 {
   transition: 1s;
 }
 
-#reset-game:not(:hover) {
+#reset-game:not( :hover ) {
   background-color: #eceff4;
   transition: 1s;
 }
@@ -89,7 +97,7 @@ h2 {
   transition: 1s;
 }
 
-#reset-score:not(:hover) {
+#reset-score:not( :hover ) {
   background-color: #eceff4;
   transition: 1s;
 }
