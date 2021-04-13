@@ -3,6 +3,7 @@ const getBall = document.getElementsByClassName('ball');
 const getColorOptions = document.getElementById('color-options');
 const getAnswer = document.getElementById('answer');
 const getReset = document.getElementById('reset-game');
+const getScore = document.getElementById('score');
 
 function mathRandom() {
   return Math.floor(Math.random() * 255);
@@ -34,9 +35,26 @@ rightOrWrong();
 
 function resetGame() {
   getReset.addEventListener('click', () => {
-    randomColorBalls()
-    rgbColorParagraph()
-    getAnswer.innerHTML = 'Escolha uma cor'
-  })
+    randomColorBalls();
+    rgbColorParagraph();
+    getAnswer.innerHTML = 'Escolha uma cor';
+  });
 }
-resetGame()
+resetGame();
+
+function scoreGame() {
+  getColorOptions.addEventListener('click', () => {
+    let score = parseInt(getScore.innerHTML, 10);
+    if (getAnswer.innerHTML === 'Acertou!') {
+      score += 3;
+      randomColorBalls();
+      rgbColorParagraph();
+    } if (getAnswer.innerHTML === 'Errou! Tente novamente!') {
+      score -= 1;
+      randomColorBalls();
+      rgbColorParagraph();
+    }
+    getScore.innerHTML = `${score}`;
+  });
+}
+scoreGame();
