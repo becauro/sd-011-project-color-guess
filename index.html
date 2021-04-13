@@ -9,17 +9,23 @@
 </head>
 <body>
   
-  <h1 id='title'>COLOR GUESSSSSSSS</h1>
-
-  <div id="color-palette">
-    
-  </div>
-  <p id='rgb-color'>
-    <span id="answer">Escolha uma Cor</span>
-  </p>
-  <button id='teste'>RODA O JOGO!</button>
-  <p>Score:</p><input id='score' type="number" value='0'>
-  <button id='reset-game'>RESETAR O JOGO</button>
+  <section class="container">
+    <h1 id="title">COLOR GUESS!</h1>
+    <p id="rgb-color"></p>
+    <p class="score">Score:</p>
+    <p id="score">0</p>
+    <section id="ball-container">
+      <li class="ball"></li>
+      <li class="ball"></li>
+      <li class="ball"></li>
+      <li class="ball"></li>
+      <li class="ball"></li>
+      <li class="ball"></li>
+    </section>
+    <p id="answer">Escolha uma cor</p>
+    <button id="reset-game">Resetar o jogo</button>
+    <button id="reset-score">Resetar o score</button>
+  </section>
   <script src='script.js'></script>
 </body>
 </html>

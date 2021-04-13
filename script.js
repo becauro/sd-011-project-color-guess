@@ -1,43 +1,51 @@
-const resetGameButton = document.getElementById('reset-game');
-const colours = [];
-const allBalls = document.getElementsByClassName('ball');
-const winner = document.querySelector('#answer');
-const allPalettes = document.getElementById('color-palette')
-const score = document.getElementById('score');
-const buttonForReady = document.getElementById('teste');
+const balls = document.querySelectorAll('.ball');
+const correctColor = document.querySelector('#rgb-color');
+const ballContainer = document.querySelector('#ball-container');
+const answer = document.querySelector('#answer');
+const resetButton = document.querySelector('#reset-game');
+const scoreText = document.querySelector('#score');
+const resetScore = document.querySelector('#reset-score');
+let score = 0;
 
-function createPaletteContainer(num) {
-  for (let index = 0; index < num; index += 1) {
-    const palettesBox = document.createElement('div');
-    const allPalettes = document.getElementById('color-palette');
-    allPalettes.appendChild(palettesBox);
-    palettesBox.className = 'ball';
+const randomRgbColor = () => {
+  const r = Math.round(Math.random() * 255);
+  const g = Math.round(Math.random() * 255);
+  const b = Math.round(Math.random() * 255);
+  return `rgb(${r}, ${g}, ${b})`;
+};
+
+const ballColorGenerator = () => {
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].style.backgroundColor = randomRgbColor();
   }
-}
-createPaletteContainer(6);
+};
+ballColorGenerator();
 
-function randomColor() {
-  const paletteColor = document.getElementsByClassName('ball');
-  for (let index = 0; index < paletteColor.length; index += 1) {
-    const r = parseInt(Math.random() * 255, 10);
-    const g = parseInt(Math.random() * 255, 10);
-    const b = parseInt(Math.random() * 255, 10);
-    paletteColor[index].style.backgroundColor = `rgba(${r}, ${g}, ${b})`;
-    colours.push(paletteColor[index])
-    const colourPicked = colours[Math.floor(Math.random()*colours.length)];
-    winner.textContent = colourPicked.style.backgroundColor;
+function randomTextColor() {
+  const randomColor = Math.round(Math.random() * 5);
+  correctColor.innerText = balls[randomColor].style.backgroundColor;
+};
+randomTextColor();
+
+ballContainer.addEventListener('click', (event) => {
+  const ballSelected = event.target;
+  if (ballSelected.style.backgroundColor !== correctColor.innerText) {
+    answer.innerText = 'Errou! Tente novamente!';
+  } else if (ballSelected.style.backgroundColor === correctColor.innerText) {
+    answer.innerText = 'Acertou!';
+    score += 3;
   }
-}
-buttonForReady.addEventListener('click', randomColor);
+  scoreText.innerText = score;
+  ballColorGenerator();
+  randomTextColor();
+});
 
-function correctAswner() {
-  allPalettes.addEventListener('click', (event) => {
-    const clickedColor = event.target;
-    if (clickedColor.style.backgroundColor === winner.textContent) {
-      alert('Acertou!');
-    } else {
-      alert('Errou!');
-    }
-  });
-}
-correctAswner();
+resetButton.addEventListener('click', () => {
+  answer.innerText = 'Escolha uma cor';
+  ballColorGenerator();
+  randomTextColor();
+});
+
+resetScore.addEventListener('click', () => {
+  scoreText.innerText = 0;
+});

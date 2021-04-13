@@ -1,3 +1,7 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
 .ball {
   width: 50px;
   height: 50px;
@@ -5,4 +9,31 @@
   border: black solid 1px;
   margin: 20px;
   border-radius: 50%;
+}
+
+#ball-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#reset-game {
+  background-color: red;
+  margin: 20px;
+  width: 200px;
+  color: white;
+  height: 100px;
+}
+
+#reset-score {
+  background-color: blue;
+  margin: 20px;
+  width: 200px;
+  color: white;
+  height: 100px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
