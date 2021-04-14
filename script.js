@@ -2,6 +2,7 @@ const color = document.getElementsByClassName('ball');
 const rgbColor = document.getElementById('rgb-color');
 const scorePrint = document.getElementById('score');
 scorePrint.innerText = 'Pontuação: 0';
+let a = () => {};
 let score = 0;
 
 function randomColor() {
@@ -37,11 +38,11 @@ function checkCorrect() {
     color[i].addEventListener('click', () => {
       if (color[i].style.backgroundColor === rgbColorComplete) {
         p.innerText = 'Acertou!';
-        score += 3;
+        let a = () => { return scorePrint.innerText = `Pontuação: ${score += 3}`};
+        a();
       } else {
         p.innerText = 'Errou! Tente novamente!';
       }
-      scorePrint.innerText = `Pontuação: ${score}`;
     });
   }
 }
