@@ -1,5 +1,8 @@
 const color = document.getElementsByClassName('ball');
 const rgbColor = document.getElementById('rgb-color');
+const scorePrint = document.getElementById('score');
+scorePrint.innerText = 'Pontuação: 0';
+let score = 0;
 
 function randomColor() {
   const r = Math.floor(Math.random() * 255);
@@ -17,7 +20,6 @@ function randomRgb() {
 function ballColor() {
   const randomPosition = Math.floor(Math.random() * 6);
   const rgbColorComplete = `rgb${rgbColor.innerText}`;
-  console.log(rgbColorComplete)
 
   for (let i = 0; i < color.length; i += 1) {
     color[i].style.backgroundColor = `rgb${randomColor()}`;
@@ -35,9 +37,11 @@ function checkCorrect() {
     color[i].addEventListener('click', () => {
       if (color[i].style.backgroundColor === rgbColorComplete) {
         p.innerText = 'Acertou!';
+        score += 3;
       } else {
         p.innerText = 'Errou! Tente novamente!';
       }
+      scorePrint.innerText = `Pontuação: ${score}`;
     });
   }
 }
@@ -49,9 +53,9 @@ function resetGame() {
     randomRgb();
     ballColor();
     checkCorrect();
-  })
+  });
 }
 
 ballColor();
 checkCorrect();
-resetGame()
+resetGame();
