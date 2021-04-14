@@ -37,14 +37,21 @@ function setObjective() {
   objective.innerText = color.slice(-(color.length - 3));
 }
 
+function addToScore(option) {
+  const scoreValue = parseInt(score.innerText, 10);
+
+  if (option) score.innerText = scoreValue + 3;
+  else score.innerText = scoreValue > 0 ? scoreValue - 1 : 0;
+}
+
 function checkAnswer({ target }) {
   if (target.classList.contains(ballClass)) {
     if (window.getComputedStyle(target).backgroundColor === `rgb${objective.innerText}`) {
       answer.innerText = 'Acertou!';
-      score.innerText = parseInt(score.innerText, 10) + 3;
+      addToScore(true);
     } else {
       answer.innerText = 'Errou! Tente novamente!';
-      score.innerText = parseInt(score.innerText, 10) - 1;
+      addToScore(false);
     }
   }
 }
