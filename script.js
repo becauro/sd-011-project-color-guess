@@ -2,6 +2,8 @@
 const colorToBeGuessed = document.querySelector('#rgb-color');
 const balls = document.querySelectorAll('.ball');
 const answer = document.getElementById('answer');
+const scoreItem = document.querySelector('#score');
+let score = 0;
 
 function colorBalls() {
   for (let index = 0; index < balls.length; index += 1) {
@@ -21,9 +23,12 @@ function compare() {
   circles.addEventListener('click', (event) => {
     if (colorToBeGuessed.innerText !== event.target.style.backgroundColor) {
       answer.innerText = 'Errou! Tente novamente!';
+      score -= 1;
     } else {
       answer.innerText = 'Acertou!';
+      score += 3;
     }
+    scoreItem.innerText = `${score}`;
   });
 }
 compare();
