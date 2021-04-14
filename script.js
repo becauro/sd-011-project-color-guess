@@ -48,9 +48,11 @@ function checkAnswer({ target }) {
   if (target.classList.contains(ballClass)) {
     if (window.getComputedStyle(target).backgroundColor === `rgb${objective.innerText}`) {
       answer.innerText = 'Acertou!';
+      answer.style.color = 'green';
       addToScore(true);
     } else {
       answer.innerText = 'Errou! Tente novamente!';
+      answer.style.color = 'red';
       addToScore(false);
     }
   }
@@ -60,6 +62,7 @@ function setGame() {
   setColorElements();
   setObjective();
   answer.innerText = 'Escolha uma cor';
+  answer.style.color = 'black';
 }
 
 function onLoad() {
