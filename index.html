@@ -2,24 +2,30 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <title>Color Guess</title>
 </head>
 <body>
-    <h1 id="title">Adivinhe a cor!</h1>
+    <header>
+        <h1 id="title"><a href="">Adivinhe a cor!</a></h1>
+        <p id="rgb-color">(168, 34, 1)</p>
+    </header>
 
-    <p id="rgb-color">(168, 34, 1)</p>
-    <p id="score">Pontuação:</p>
+    <section>
+        <p id="answer"></p>
 
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
-    <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
 
-    <p id="answer"></p>
-    <button id="reset-game">Reiniciar</button>
+        <p id="score">Pontuação:</p>
+        <button id="reset-game">Reiniciar</button>
+    </section>
 
     <script src="script.js"></script>
 </body>

@@ -37,11 +37,11 @@ function checkCorrect() {
     color[i].addEventListener('click', () => {
       if (color[i].style.backgroundColor === rgbColorComplete) {
         p.innerText = 'Acertou!';
-        const a = () => scorePrint.innerText = `Pontuação: ${score += 3}`;
-        a();
+        score += 3;
       } else {
         p.innerText = 'Errou! Tente novamente!';
       }
+      scorePrint.innerText = `Pontuação: ${score}`;
     });
   }
 }
