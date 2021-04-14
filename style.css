@@ -1,3 +1,12 @@
 body {
   text-align: center;
 }
+
+.ball {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+  margin: 0 10px;
+  border: solid black 3px;
+  border-radius: 75%;
+}
