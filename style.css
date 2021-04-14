@@ -1,0 +1,17 @@
+* {
+  text-align: center;
+}
+
+#rgb-color {
+  margin-top: 20px;
+  font-size: 25px;
+}
+
+.ball {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 50px 10px;
+  cursor: pointer;
+}
