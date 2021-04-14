@@ -4,6 +4,7 @@ const objective = document.getElementById('rgb-color');
 const optionsContainer = document.getElementById('options-container');
 const options = document.getElementsByClassName(ballClass);
 const answer = document.getElementById('answer');
+const buttonReset = document.getElementById('reset-game');
 
 const divElement = document.createElement('div');
 
@@ -43,11 +44,17 @@ function checkAnswer({ target }) {
   }
 }
 
-function onLoad() {
-  createColorOptions(6);
+function setGame() {
   setColorElements();
   setObjective();
+  answer.innerText = 'Escolha uma cor';
+}
+
+function onLoad() {
+  createColorOptions(6);
+  setGame();
   optionsContainer.addEventListener('click', checkAnswer);
+  buttonReset.addEventListener('click', setGame);
 }
 
 window.onload = onLoad;
