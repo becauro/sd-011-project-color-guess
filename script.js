@@ -13,6 +13,20 @@ window.onload = function (){
 
   const number = parseInt(Math.random()*6)
   const colorTarget = document.querySelector('#rgb-color')
-  const teste = circles[number].style.backgroundColor
-  colorTarget.innerHTML = teste
+  const colorSorted = circles[number].style.backgroundColor
+  colorTarget.innerHTML = colorSorted
+
+  const circleClick = document.querySelector('#colors')
+  const result = document.querySelector('#answer')
+
+circleClick.addEventListener('click', function(event){
+  const colorSelected = event.target
+  if(colorSelected.style.backgroundColor === colorSorted){
+    result.innerText = 'Acertou'
+  } else {
+    result.innerText = 'Errou! Tente novamente!'
+  }
+})
 }
+
+
