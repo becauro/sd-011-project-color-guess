@@ -1,4 +1,4 @@
-window.onload = function (){
+window.onload = function start(){
     const circles = document.querySelectorAll('.ball')
 
     for(let index = 0; index<circles.length; index +=1){
@@ -22,7 +22,7 @@ window.onload = function (){
 circleClick.addEventListener('click', function(event){
   const colorSelected = event.target
   if(colorSelected.style.backgroundColor === colorSorted){
-    result.innerText = 'Acertou'
+    result.innerText = 'Acertou!'
   } else {
     result.innerText = 'Errou! Tente novamente!'
   }
