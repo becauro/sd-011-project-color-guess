@@ -29,4 +29,10 @@ circleClick.addEventListener('click', function(event){
 })
 }
 
+const buttonReset = document.querySelector('#reset-game')
 
+buttonReset.addEventListener('click', function(){
+  window.onload()
+  const result = document.querySelector('#answer')
+  result.innerText = 'Escolha uma cor'
+})
