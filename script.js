@@ -17,7 +17,7 @@ function score() {
   const points = document.getElementById('score');
   let number = parseInt(points.innerText, 10);
   number += 3;
-  sessionStorage.setItem('score', number);
+  // sessionStorage.setItem('score', number);
   points.innerText = number;
 }
 
@@ -66,19 +66,19 @@ function addEventResetGame() {
   button.addEventListener('click', resetGame);
 }
 
-function loadScore() {
-  const points = document.getElementById('score');
-  const memory = sessionStorage.getItem('score');
-  if (memory === null) {
-    points.innerText = '0';
-  } else {
-    points.innerText = memory;
-  }
-}
+// function loadScore() {
+//   const points = document.getElementById('score');
+//   const memory = sessionStorage.getItem('score');
+//   if (memory === null) {
+//     points.innerText = '0';
+//   } else {
+//     points.innerText = memory;
+//   }
+// }
 
 window.onload = function load() {
   createColors();
   getQuestion();
   addEventResetGame();
-  loadScore();
+  // loadScore();
 };
