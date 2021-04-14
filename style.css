@@ -2,3 +2,14 @@
   margin: 0;
   padding: 0;
 }
+
+#options-container {
+  display: flex;
+}
+
+.ball {
+  width: 2em;
+  height: 2em;
+  margin: 0.5em;
+  border-radius: 100%;
+}
