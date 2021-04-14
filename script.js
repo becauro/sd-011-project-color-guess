@@ -1,6 +1,7 @@
-// Requisito 2 e 4 - Escrever cor no formato RGB  e Sorteio das
+// Requisito 2 e 4 - Escrever cor no formato RGB  e Sorteio das cores
 const colorToBeGuessed = document.querySelector('#rgb-color');
 const balls = document.querySelectorAll('.ball');
+const answer = document.getElementById('answer');
 
 function colorBalls() {
   for (let index = 0; index < balls.length; index += 1) {
@@ -14,10 +15,10 @@ function colorBalls() {
 }
 colorBalls();
 
+// Requisito 5 - Clicar em um circulo colorido, deve ser mostrado um texto indicando se está correto
 function compare() {
   const circles = document.getElementById('allcircles');
   circles.addEventListener('click', (event) => {
-    const answer = document.getElementById('answer');
     if (colorToBeGuessed.innerText !== event.target.style.backgroundColor) {
       answer.innerText = 'Errou! Tente novamente!';
     } else {
@@ -26,3 +27,13 @@ function compare() {
   });
 }
 compare();
+
+// Requisito 6 - Criação de um botão para iniciar/reiniciar o jogo
+function restartTheGame() {
+  const resetButton = document.querySelector('#reset-game');
+  resetButton.addEventListener('click', () => {
+    answer.innerText = 'Escolha uma cor';
+    colorBalls();
+  });
+}
+restartTheGame();
