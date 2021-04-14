@@ -1,5 +1,6 @@
 const ballClass = 'ball';
 
+const score = document.getElementById('score');
 const objective = document.getElementById('rgb-color');
 const optionsContainer = document.getElementById('options-container');
 const options = document.getElementsByClassName(ballClass);
@@ -40,7 +41,11 @@ function checkAnswer({ target }) {
   if (target.classList.contains(ballClass)) {
     if (window.getComputedStyle(target).backgroundColor === `rgb${objective.innerText}`) {
       answer.innerText = 'Acertou!';
-    } else answer.innerText = 'Errou! Tente novamente!';
+      score.innerText = parseInt(score.innerText, 10) + 3;
+    } else {
+      answer.innerText = 'Errou! Tente novamente!';
+      score.innerText = parseInt(score.innerText, 10) - 1;
+    }
   }
 }
 
