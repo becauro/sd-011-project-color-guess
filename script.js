@@ -10,24 +10,30 @@ window.onload = function start(){
 
     }
 
+    const number = parseInt(Math.random()*6)
+    const colorTarget = document.querySelector('#rgb-color')
+    const colorSorted = circles[number].style.backgroundColor
+    colorTarget.innerHTML = colorSorted
 
-  const number = parseInt(Math.random()*6)
-  const colorTarget = document.querySelector('#rgb-color')
-  const colorSorted = circles[number].style.backgroundColor
-  colorTarget.innerHTML = colorSorted
+}
 
-  const circleClick = document.querySelector('#colors')
-  const result = document.querySelector('#answer')
+const circleClick = document.querySelector('#colors')
+const result = document.querySelector('#answer')
+const score = document.querySelector('#score')
+let counter = 0
 
 circleClick.addEventListener('click', function(event){
+  const colorTarget = document.querySelector('#rgb-color')
   const colorSelected = event.target
-  if(colorSelected.style.backgroundColor === colorSorted){
+  
+  if(colorSelected.style.backgroundColor === colorTarget.innerText){
     result.innerText = 'Acertou!'
+    counter +=3
+    score.innerText = `${counter}`
   } else {
     result.innerText = 'Errou! Tente novamente!'
   }
 })
-}
 
 const buttonReset = document.querySelector('#reset-game')
 
