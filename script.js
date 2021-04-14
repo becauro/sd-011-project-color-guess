@@ -7,5 +7,12 @@ window.onload = function (){
         const color3 = parseInt(Math.random()*255)
     
         circles[index].style.backgroundColor = `rgb(${color1}, ${color2}, ${color3})`
+
     }
+
+
+  const number = parseInt(Math.random()*6)
+  const colorTarget = document.querySelector('#rgb-color')
+  const teste = circles[number].style.backgroundColor
+  colorTarget.innerHTML = teste
 }
