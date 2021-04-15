@@ -35,3 +35,17 @@ function createBallColors() {
   }
 }
 window.addEventListener('load', createBallColors);
+
+// 5
+
+const answer = document.getElementById('answer');
+function checkAnswer(event) {
+  const shortAnswer = event.target.style.backgroundColor.slice(3);
+  if (shortAnswer === rgbColor.innerText) {
+    answer.innerText = 'Acertou!';
+  } else {
+    answer.innerText = 'Errou! Tente novamente!';
+  }
+}
+
+ballContainer.addEventListener('click', checkAnswer);
