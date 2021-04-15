@@ -21,3 +21,17 @@ function generateBalls() {
   }
 }
 window.addEventListener('load', generateBalls);
+
+// 4
+
+function createBallColors() {
+  const colorBalls = document.getElementsByClassName('ball');
+  for (let index = 0; index < 6; index += 1) {
+    const redCode = Math.floor(Math.random() * 255);
+    const greenCode = Math.floor(Math.random() * 255);
+    const blueCode = Math.floor(Math.random() * 255);
+    colorBalls[index].style.backgroundColor = `rgb(${redCode}, ${greenCode}, ${blueCode})`;
+    console.log(colorBalls[index].style.backgroundColor);
+  }
+}
+window.addEventListener('load', createBallColors);
