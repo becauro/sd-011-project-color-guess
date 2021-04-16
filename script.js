@@ -50,15 +50,31 @@ function clickBalls() {
 clickBalls();
 
 function trueOrFalse(event) {
-  const bgValue = getBackGroundValue()
+  const bgValue = getBackGroundValue();
   const answer = document.getElementById('answer');
+  const score = document.getElementById('score');
   if (bgValue === event.target.style.background) {
     answer.innerHTML = 'Acertou! Novas Cores!';
+    score.innerText = Number(score.innerText) + 3;
+    storageScore();
   } else {
     answer.innerHTML = 'Errou! Tente novamente!';
+    score.innerHTML = 0;
   }
 }
 
 function reload() {
-  location.reload();
+  getBackgroundColor();
+  handleRgbValue();
+  document.getElementById('answer').innerHTML = 'Escolha uma cor';
 }
+
+function storageScore() {
+  const score = document.getElementById('score');
+  sessionStorage.setItem('score', score.innerHTML)
+}
+
+// window.onload = function() {
+//   const score = document.getElementById('score');
+//   score.innerHTML = sessionStorage.getItem('score');
+// }
