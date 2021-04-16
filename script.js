@@ -50,6 +50,11 @@ function clickBalls() {
 clickBalls();
 
 function trueOrFalse(event) {
-  // compares the color with the current paragrah and true or false.
-  console.log(event.target.style.background);
+  const bgValue = getBackGroundValue()
+  const answer = document.getElementById('answer');
+  if (bgValue === event.target.style.background) {
+    answer.innerHTML = 'Acertou! Novas Cores!';
+  } else {
+    answer.innerHTML = 'Errou! Tente novamente!';
+  }
 }
