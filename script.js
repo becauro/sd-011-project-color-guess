@@ -58,3 +58,7 @@ function trueOrFalse(event) {
     answer.innerHTML = 'Errou! Tente novamente!';
   }
 }
+
+function reload() {
+  location.reload();
+}
