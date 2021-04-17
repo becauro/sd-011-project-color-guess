@@ -1,5 +1,5 @@
 const HINT_RGB = document.getElementById('rgb-color');
-
+const GAME_COLORS = document.getElementById('game-colors');
 function randomRgbColor() {
   const COLORS = [];
   for (let index = 0; index < 3; index += 1) {
@@ -17,7 +17,7 @@ function gameColors() {
     const NEW_COLOR = document.createElement('div');
     NEW_COLOR.className = 'ball';
     NEW_COLOR.style.backgroundColor = randomRgbColor();
-    document.getElementById('game-colors').appendChild(NEW_COLOR);
+    GAME_COLORS.appendChild(NEW_COLOR);
     if (index === WIN_INDEX) {
       winColor = NEW_COLOR.style.backgroundColor;
     }
@@ -25,8 +25,17 @@ function gameColors() {
   return winColor;
 }
 
-window.onload = () => {
-  const WINNER = gameColors();
-  const END = WINNER.length;
-  HINT_RGB.innerText = WINNER.substring(3, END);
-};
+const WINNER = gameColors();
+const END = WINNER.length;
+HINT_RGB.innerText = WINNER.substring(3, END);
+
+const ANSWER = document.getElementById('answer');
+
+GAME_COLORS.addEventListener('click', (event) => {
+  const SELECTED = event.target;
+  if (SELECTED.style.backgroundColor === WINNER) {
+    ANSWER.innerText = 'Acertou!';
+  } else {
+    ANSWER.innerText = 'Errou! Tente novamente!';
+  }
+});
