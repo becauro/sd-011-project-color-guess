@@ -1,5 +1,6 @@
 const HINT_RGB = document.getElementById('rgb-color');
 const GAME_COLORS = document.getElementById('game-colors');
+
 function randomRgbColor() {
   const COLORS = [];
   for (let index = 0; index < 3; index += 1) {
@@ -25,17 +26,29 @@ function gameColors() {
   return winColor;
 }
 
-const WINNER = gameColors();
-const END = WINNER.length;
-HINT_RGB.innerText = WINNER.substring(3, END);
+let winner = gameColors();
+let end = winner.length;
+HINT_RGB.innerText = winner.substring(3, end);
 
 const ANSWER = document.getElementById('answer');
 
 GAME_COLORS.addEventListener('click', (event) => {
   const SELECTED = event.target;
-  if (SELECTED.style.backgroundColor === WINNER) {
+  if (SELECTED.style.backgroundColor === winner) {
     ANSWER.innerText = 'Acertou!';
   } else {
     ANSWER.innerText = 'Errou! Tente novamente!';
   }
+});
+
+const RESET_GAME = document.getElementById('reset-game');
+
+RESET_GAME.addEventListener('click', () => {
+  ANSWER.innerText = 'Escolha uma cor';
+  while (GAME_COLORS.firstChild) {
+    GAME_COLORS.firstChild.remove();
+  }
+  winner = gameColors();
+  end = winner.length;
+  HINT_RGB.innerText = winner.substring(3, end);
 });
