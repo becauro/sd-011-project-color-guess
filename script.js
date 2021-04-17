@@ -31,11 +31,16 @@ let end = winner.length;
 HINT_RGB.innerText = winner.substring(3, end);
 
 const ANSWER = document.getElementById('answer');
+const SCORE = document.getElementById('score');
 
 GAME_COLORS.addEventListener('click', (event) => {
   const SELECTED = event.target;
+  let YOUR_SCORE = parseInt(sessionStorage.getItem('score'), 10);
   if (SELECTED.style.backgroundColor === winner) {
     ANSWER.innerText = 'Acertou!';
+    YOUR_SCORE += 3;
+    sessionStorage.setItem('score', YOUR_SCORE);
+    SCORE.innerText = `Placar: ${YOUR_SCORE}`;
   } else {
     ANSWER.innerText = 'Errou! Tente novamente!';
   }
@@ -52,3 +57,7 @@ RESET_GAME.addEventListener('click', () => {
   end = winner.length;
   HINT_RGB.innerText = winner.substring(3, end);
 });
+
+window.onload = () => {
+  sessionStorage.setItem('score', 0);
+};
