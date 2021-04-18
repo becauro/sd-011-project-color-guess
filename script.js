@@ -47,10 +47,12 @@ function checkAnswer(event) {
   let titleRGBValue = answerRGB.innerText;
   titleRGBValue = `rgb${titleRGBValue}`;
 
-  if (event.target.style.backgroundColor === titleRGBValue) {
-    answer.innerText = 'Acertou!';
-  } else {
-    answer.innerText = 'Errou! Tente novamente!';
+  if (event.target.className === 'ball') {
+    if (event.target.style.backgroundColor === titleRGBValue) {
+      answer.innerText = 'Acertou!';
+    } else {
+      answer.innerText = 'Errou! Tente novamente!';
+    }
   }
 
   return answer.innerText;
