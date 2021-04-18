@@ -79,6 +79,12 @@ function addScore(event) {
     newScore += 3;
     score.innerText = score.innerText.replaceAll(currentScore, newScore);
   }
+
+  if (score.innerText === 'Placar: 9') {
+    alert('UAU! PONTUAÇÃO MÁXIMA');
+    score.innerText = 'Placar: 0';
+    resetGame();
+  }
 }
 
 options.addEventListener('click', addScore);
