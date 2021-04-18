@@ -2,6 +2,7 @@ const balls = document.querySelectorAll('.ball');
 const answerRGB = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const options = document.querySelector('#options');
+const resetGameButton = document.querySelector('#reset-game');
 
 // Função para gerar números RGB aleatórios;
 function randomRGBNumber() {
@@ -53,6 +54,17 @@ function checkAnswer(event) {
 }
 
 options.addEventListener('click', checkAnswer);
+
+// Função para resetar o jogo
+
+function resetGame() {
+  addRGBColor();
+  changeTitleQuestion();
+
+  answer.innerText = 'Escolha uma cor';
+}
+
+resetGameButton.addEventListener('click', resetGame);
 
 // Adiciona funções para iniciar com o carregamento da página
 
