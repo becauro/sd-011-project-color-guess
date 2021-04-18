@@ -3,6 +3,7 @@ const answerRGB = document.querySelector('#rgb-color');
 const answer = document.querySelector('#answer');
 const options = document.querySelector('#options');
 const resetGameButton = document.querySelector('#reset-game');
+const score = document.querySelector('#score');
 
 // Função para gerar números RGB aleatórios;
 function randomRGBNumber() {
@@ -51,6 +52,8 @@ function checkAnswer(event) {
   } else {
     answer.innerText = 'Errou! Tente novamente!';
   }
+
+  return answer.innerText;
 }
 
 options.addEventListener('click', checkAnswer);
@@ -65,6 +68,20 @@ function resetGame() {
 }
 
 resetGameButton.addEventListener('click', resetGame);
+
+// Função para placar do jogo
+
+function addScore(event) {
+  if (checkAnswer(event) === 'Acertou!') {
+    const currentScore = score.innerText[score.innerText.length - 1];
+    let newScore = currentScore;
+    newScore = parseFloat(newScore);
+    newScore += 3;
+    score.innerText = score.innerText.replaceAll(currentScore, newScore);
+  }
+}
+
+options.addEventListener('click', addScore);
 
 // Adiciona funções para iniciar com o carregamento da página
 
