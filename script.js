@@ -2,6 +2,9 @@ const colorCodeElement = document.getElementById('rgb-color');
 const colorOptionsContainerElement = document.getElementById('color-options');
 const messageElement = document.getElementById('answer');
 const resetButton = document.getElementById('reset-game');
+const scoreElement = document.getElementById('score');
+
+let score = 0;
 
 function randomRGBNumber() {
   return Math.floor(Math.random() * 256);
@@ -20,6 +23,8 @@ function pickColor(event) {
   const correctColor = `rgb${colorCodeElement.textContent}`;
   if (selectedColor === correctColor) {
     messageElement.textContent = 'Acertou!';
+    score += 3;
+    scoreElement.textContent = `Placar: ${score}`;
   } else {
     messageElement.textContent = 'Errou! Tente novamente!';
   }
@@ -49,5 +54,6 @@ function resetGame() {
 }
 
 colorCodeElement.textContent = generateRandomRGBColor();
+scoreElement.textContent = `Placar: ${score}`;
 generateColorOptions();
 resetButton.addEventListener('click', resetGame);
