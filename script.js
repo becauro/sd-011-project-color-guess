@@ -1,5 +1,6 @@
 const colorCodeElement = document.getElementById('rgb-color');
 const colorOptionsContainerElement = document.getElementById('color-options');
+const messageElement = document.getElementById('answer');
 
 function randomRGBNumber() {
   return Math.floor(Math.random() * 256);
@@ -12,34 +13,32 @@ function generateRandomRGBColor() {
   return `(${randomR}, ${randomG}, ${randomB})`;
 }
 
+function pickColor(event) {
+  const selectedOption = event.target;
+  const selectedColor = selectedOption.style.backgroundColor;
+  const correctColor = `rgb${colorCodeElement.textContent}`;
+  if (selectedColor === correctColor) {
+    messageElement.textContent = 'Acertou!';
+  } else {
+    messageElement.textContent = 'Errou! Tente novamente!';
+  }
+}
+
 function generateColorOptions() {
   const numberOfOptions = 6;
   const correctGuessIndex = Math.floor(Math.random() * numberOfOptions);
-  const options = [];
   for (let index = 0; index < numberOfOptions; index += 1) {
-    if (index === correctGuessIndex) {
-      options[index] = colorCodeElement.textContent;
-    } else {
-      options[index] = generateRandomRGBColor();
-    }
-  }
-  return options;
-}
-
-function makeColorOptionsElements(rgbCodes) {
-  return rgbCodes.map((rgbCode) => {
     const element = document.createElement('div');
     element.classList.add('ball');
-    element.style.backgroundColor = `rgb${rgbCode}`;
-    return element;
-  });
-}
-
-function appendColorOptionsElements(elements) {
-  for (let index = 0; index < elements.length; index += 1) {
-    colorOptionsContainerElement.appendChild(elements[index]);
+    element.addEventListener('click', pickColor);
+    if (index === correctGuessIndex) {
+      element.style.backgroundColor = `rgb${colorCodeElement.textContent}`;
+    } else {
+      element.style.backgroundColor = `rgb${generateRandomRGBColor()}`;
+    }
+    colorOptionsContainerElement.appendChild(element);
   }
 }
 
 colorCodeElement.textContent = generateRandomRGBColor();
-appendColorOptionsElements(makeColorOptionsElements(generateColorOptions()));
+generateColorOptions();
