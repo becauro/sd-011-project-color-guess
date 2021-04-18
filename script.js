@@ -37,7 +37,7 @@ window.onload = addRGBColor;
 function changeTitleQuestion() {
   const randomNumber = Math.floor(Math.random() * 5 + 1);
   let randomTitle = balls[randomNumber].style.backgroundColor;
-  randomTitle = randomTitle.replaceAll('rgb', '');
+  randomTitle = randomTitle.replace('rgb', '');
   answerRGB.innerText = randomTitle;
 }
 
@@ -79,7 +79,7 @@ function addScore(event) {
     let newScore = currentScore;
     newScore = parseFloat(newScore);
     newScore += 3;
-    score.innerText = score.innerText.replaceAll(currentScore, newScore);
+    score.innerText = score.innerText.replace(currentScore, newScore);
   }
 
   if (score.innerText === 'Placar: 9') {
