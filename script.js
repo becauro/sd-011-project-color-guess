@@ -1,6 +1,8 @@
 const divColors = document.querySelectorAll('.ball');
 const initialAnswer = document.getElementById('answer');
 initialAnswer.innerText = 'Escolha uma cor';
+const resetButton = document.getElementById('reset-game');
+let countScore = 0;
 
 function generateRandomColor() {
   const color = [];
@@ -20,7 +22,7 @@ function updateParagraphColor(colorArray) {
 }
 
 function addColor() {
-  let colorForCheck = [];
+  const colorForCheck = [];
   for (let index = 0; index < divColors.length; index += 1) {
     const color = generateRandomColor();
     divColors[index].style.backgroundColor = color;
@@ -33,18 +35,19 @@ function response(value) {
   const answer = document.getElementById('answer');
   if (value) {
     answer.innerText = 'Acertou!';
-    return;
   } else {
     answer.innerText = 'Errou! Tente novamente!';
   }
 }
 
-function checkAnswer(event){
+function checkAnswer(event) {
   const colorOfChoice = event.target.style.backgroundColor;
   const colorToGuess = document.getElementById('rgb-color').innerText;
+  const score = document.getElementById('score');
   if (colorOfChoice === colorToGuess) {
     response(true);
-    return;
+    countScore += 3;
+    score.innerText = `${countScore}`;
   } else {
     response(false);
   }
@@ -56,9 +59,22 @@ function createEventListeners() {
   }
 }
 
-function init() {
-  createEventListeners()
+function game() {
+  createEventListeners();
   addColor();
+}
+
+function resetGame() {
+  game();
+  const newAnswer = document.getElementById('answer');
+  newAnswer.innerText = 'Escolha uma cor';
+}
+
+function init() {
+  const initScore = document.getElementById('score');
+  initScore.innerText = `${countScore}`;
+  game();
+  resetButton.addEventListener('click', resetGame);
 }
 
 window.onload = init;
