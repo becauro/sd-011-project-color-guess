@@ -1,6 +1,7 @@
 const colorCodeElement = document.getElementById('rgb-color');
 const colorOptionsContainerElement = document.getElementById('color-options');
 const messageElement = document.getElementById('answer');
+const resetButton = document.getElementById('reset-game');
 
 function randomRGBNumber() {
   return Math.floor(Math.random() * 256);
@@ -40,5 +41,13 @@ function generateColorOptions() {
   }
 }
 
+function resetGame() {
+  colorCodeElement.textContent = generateRandomRGBColor();
+  colorOptionsContainerElement.innerHTML = '';
+  generateColorOptions();
+  messageElement.textContent = 'Escolha uma cor';
+}
+
 colorCodeElement.textContent = generateRandomRGBColor();
 generateColorOptions();
+resetButton.addEventListener('click', resetGame);
