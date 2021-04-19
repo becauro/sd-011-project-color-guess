@@ -3,6 +3,7 @@ const rgbColor = document.querySelector('#rgb-color');
 const h2 = document.querySelector('h2');
 const resetButton = document.querySelector('#reset-game');
 const score = document.querySelector('#score');
+const colorNode = document.querySelectorAll('.ball');
 
 function randomColor() {
   const random = 'rgb(X,X,X)';
@@ -45,12 +46,10 @@ function answerFunction(event) {
   }
 }
 
-function checkAnswer() {
-  for (let i = 0; i < colorBalls.length; i += 1) {
-    colorBalls[i].addEventListener('click', answerFunction);
-  }
-}
-checkAnswer();
+colorNode.forEach((x) => {
+  x.addEventListener('click', answerFunction);
+});
+
 console.log(`"rgb${rgbColor.innerText}"`);
 
 function comparison(x, i) {
@@ -59,8 +58,6 @@ function comparison(x, i) {
   const c = x[i] !== 'b';
   return a && b && c;
 }
-
-const regularRGB = 'rgb(255, 255, 255)';
 
 function randomColorNumber() {
   return colorBalls[randomNumber()].style.backgroundColor;
