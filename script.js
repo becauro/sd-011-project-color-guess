@@ -1,7 +1,10 @@
 const colorRGB = document.getElementById('rgb-color');
 const paletteColors = document.getElementById('paleta');
+const answer = document.getElementById('answer');
+const buttonResetGame = document.getElementById('botao-resetar');
 
 document.getElementById('title').innerText = 'Color Guess';
+buttonResetGame.innerText = 'Reiniciar jogo';
 
 // Gera um número inteiro aleatório
 function randomNumber(number) {
@@ -10,7 +13,7 @@ function randomNumber(number) {
 
 // Gera uma cor aleatória
 function generateColor() {
-  return `RGB(${randomNumber(255)},${randomNumber(255)},${randomNumber(255)})`;
+  return `RGB(${randomNumber(255)}, ${randomNumber(255)}, ${randomNumber(255)})`;
 }
 
 // Gera uma array de cores
@@ -35,13 +38,34 @@ function createPalette() {
 
 function randomColorFromList() {
   const colorsFromList = createPalette();
-  colorRGB.innerText = colorsFromList[randomNumber(5)];
+  const randomNumberX = randomNumber(5);
+  colorRGB.innerText = colorsFromList[randomNumberX].substr(3);
 }
 
-// Imprime cor RGB
-// function printColor() {
-// }
+function checkColor(event) {
+  const clickedColor = event.target.style.backgroundColor;
+  const tempRGBcolor = `rgb${colorRGB.innerText}`;
+
+  if (clickedColor === tempRGBcolor) {
+    answer.innerText = 'Acertou!';
+  } else {
+    answer.innerText = 'Errou! Tente novamente!';
+  }
+}
+
+function eraseAndRestartPalette() {
+  const oldPalette = document.getElementsByClassName('ball');
+  for (let index = oldPalette.length - 1; index >= 0; index -= 1) {
+    oldPalette[index].remove();
+  }
+  randomColorFromList();
+  answer.innerText = 'Escolha uma cor';
+}
 
 window.onload = function opening() {
   randomColorFromList();
+  answer.innerText = 'Escolha uma cor';
 };
+
+paletteColors.addEventListener('click', checkColor);
+buttonResetGame.addEventListener('click', eraseAndRestartPalette);
