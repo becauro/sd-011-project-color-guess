@@ -5,6 +5,7 @@
 
 .ball {
   display: inline-block;
-  border-radius: 10px;
-  border: solid;
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
 }
