@@ -15,9 +15,9 @@ function score() {
   points.innerText = number;
 }
 
-function removeEventsCheckAnswer() {
+function removeEventsCheckAnswer(method) {
   for (let index = 0; index < ballList.length; index += 1) {
-    ballList[index].replaceWith(ballList[index].cloneNode(true));
+    ballList[index].removeEventListener('click', method);
   }
 }
 
@@ -32,7 +32,7 @@ function checkAnswer(event) {
   } else {
     result.innerText = 'Errou! Tente novamente!';
   }
-  removeEventsCheckAnswer();
+  removeEventsCheckAnswer(checkAnswer);
 }
 
 function createColors() {
