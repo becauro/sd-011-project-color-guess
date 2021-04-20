@@ -1,7 +1,9 @@
 const colorRGB = document.getElementById('rgb-color');
 const paletteColors = document.getElementById('paleta');
 const answer = document.getElementById('answer');
-const buttonResetGame = document.getElementById('botao-resetar');
+const buttonResetGame = document.getElementById('reset-game');
+const score = document.getElementById('score');
+let scoreValue = 0;
 
 document.getElementById('title').innerText = 'Color Guess';
 buttonResetGame.innerText = 'Reiniciar jogo';
@@ -42,14 +44,24 @@ function randomColorFromList() {
   colorRGB.innerText = colorsFromList[randomNumberX].substr(3);
 }
 
+function updateScore(number) {
+  scoreValue += number;
+}
+
 function checkColor(event) {
   const clickedColor = event.target.style.backgroundColor;
   const tempRGBcolor = `rgb${colorRGB.innerText}`;
 
   if (clickedColor === tempRGBcolor) {
     answer.innerText = 'Acertou!';
+    updateScore(3);
+    score.innerText = `Placar: ${scoreValue}`;
   } else {
     answer.innerText = 'Errou! Tente novamente!';
+    if (scoreValue > 0) {
+      updateScore(-1);
+      score.innerText = `Placar: ${scoreValue}`;
+    }
   }
 }
 
@@ -65,6 +77,7 @@ function eraseAndRestartPalette() {
 window.onload = function opening() {
   randomColorFromList();
   answer.innerText = 'Escolha uma cor';
+  score.innerText = `Placar: ${scoreValue}`;
 };
 
 paletteColors.addEventListener('click', checkColor);
