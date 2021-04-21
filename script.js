@@ -1,5 +1,7 @@
 let corInicial='rgb(168, 34, 1)';
 document.getElementsByClassName('ball')[0].style.backgroundColor=corInicial;
+let score=0;
+document.getElementById('score').innerText=score;
 
 // Exercicio 4 e 5
 function criarCores(){
@@ -26,7 +28,8 @@ click.addEventListener('click', function(e){
 
     if(corEscolhida===corComparar){
         resposta=true;
-
+        score+=3;
+        document.getElementById('score').innerText=score;
     }
     let textAnswer = document.getElementById('answer');
     if(resposta){
@@ -53,3 +56,6 @@ buttonReset.addEventListener('click', function(){
     criarCores();
     document.getElementById('answer').innerText='Escolha uma cor';
 });
+
+//Exercicio 7
+
