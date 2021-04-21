@@ -28,14 +28,14 @@ click.addEventListener('click', function(e){
 
     if(corEscolhida===corComparar){
         resposta=true;
-        score+=3;
-        document.getElementById('score').innerText=score;
     }
     let textAnswer = document.getElementById('answer');
     if(resposta){
         textAnswer.innerHTML='Acertou!';
         textAnswer.style.fontWeight='bold';
         resposta = false;
+        score+=3;
+        document.getElementById('score').innerText=score;
     }else{
         textAnswer.innerHTML='Errou! Tente novamente!';
         textAnswer.style.fontWeight='bold';
@@ -44,6 +44,7 @@ click.addEventListener('click', function(e){
 
 })
 
+// Resetando
 //Exercicio 5
 let buttonReset = document.getElementById('reset-game');
 buttonReset.addEventListener('click', function(){
