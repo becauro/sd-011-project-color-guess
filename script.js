@@ -2,6 +2,7 @@ const rgbColor = document.getElementById('rgb-color');
 const balls = document.querySelectorAll('.ball');
 const opt = document.querySelector('.options');
 const answer = document.getElementById('answer');
+const reset = document.getElementById('reset-game');
 const arrColors = [];
 
 /** Consultei uma função do site para gerar cores hexadecimais aleatórias.
@@ -40,4 +41,8 @@ opt.addEventListener('click', (event) => {
       answer.innerHTML = 'Errou! Tente novamente!';
     }
   }
+});
+
+reset.addEventListener('click', () => {
+  window.location.reload();
 });
