@@ -1,5 +1,7 @@
 const rgbColor = document.getElementById('rgb-color');
 const balls = document.querySelectorAll('.ball');
+const opt = document.querySelector('.options');
+const answer = document.getElementById('answer');
 const arrColors = [];
 
 /** Consultei uma função do site para gerar cores hexadecimais aleatórias.
@@ -28,3 +30,14 @@ function insertColors() {
 }
 
 insertColors();
+
+opt.addEventListener('click', (event) => {
+  if ((event.target.tagName = 'div')) {
+    const color = 'rgb' + rgbColor.innerText;
+    if (event.target.style.backgroundColor === color) {
+      answer.innerHTML = 'Acertou!';
+    } else {
+      answer.innerHTML = 'Errou! Tente novamente!';
+    }
+  }
+});
