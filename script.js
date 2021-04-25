@@ -4,6 +4,9 @@ const opt = document.querySelector('.options');
 const answer = document.getElementById('answer');
 const reset = document.getElementById('reset-game');
 const arrColors = [];
+const score = document.getElementById('score');
+const pontos = localStorage.getItem('pontos');
+if (pontos > 0) score.innerHTML = pontos;
 
 /** Consultei uma função do site para gerar cores hexadecimais aleatórias.
  * Source: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript */
@@ -25,7 +28,7 @@ function getRandomInteger() {
 
 function insertColors() {
   for (let i = 0; i < balls.length; i += 1) {
-    balls[i].style.backgroundColor = `rgb` + arrColors[i];
+    balls[i].style.backgroundColor = `rgb${arrColors[i]}`;
   }
   rgbColor.innerText = arrColors[getRandomInteger()];
 }
@@ -34,9 +37,10 @@ insertColors();
 
 opt.addEventListener('click', (event) => {
   if ((event.target.tagName = 'div')) {
-    const color = 'rgb' + rgbColor.innerText;
-    if (event.target.style.backgroundColor === color) {
+    if (event.target.style.backgroundColor === `rgb${rgbColor.innerText}`) {
       answer.innerHTML = 'Acertou!';
+      score.innerHTML = parseInt(score.innerHTML, 10) + 3;
+      localStorage.setItem('pontos', parseInt(score.innerHTML, 10));
     } else {
       answer.innerHTML = 'Errou! Tente novamente!';
     }
