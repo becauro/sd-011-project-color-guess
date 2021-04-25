@@ -1,0 +1,23 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 14px;
+  font-family: fantasy;
+}
+
+#title {
+  margin: 25px 0;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: rgb(65, 25, 127);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
