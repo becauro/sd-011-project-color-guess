@@ -21,7 +21,7 @@ const createElement = (type, className) => {
 // pontuacao inicial que é atualizada a cada jogada
 let level = 1;
 
-// insere o level
+// insere o level no HTML
 const generateScore = () => {
   scoreElement.innerText = level;
 };
@@ -53,7 +53,7 @@ const startGame = () => {
     insertColors();
   }
   const allBalls = document.querySelectorAll('.ball');
-  const rightBall = allBalls[Math.floor(Math.random() * level)]; // sorteia a resposta
+  const rightBall = allBalls[Math.floor(Math.random() * level)]; // sorteia a resposta certa
   rightBallColor = rightBall.style.backgroundColor; // armazena a resposta correta
   colorToGuess.innerText = rightBallColor.replace('rgb', 'RGB: '); // insere o rgb da resposta
 };
