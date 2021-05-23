@@ -1,0 +1,14 @@
+ul {
+  display: flex;
+}
+
+li {
+  list-style: none;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+
+li:hover {
+  border: 2px solid black;
+}
