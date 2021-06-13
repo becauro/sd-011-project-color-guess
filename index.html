@@ -10,6 +10,7 @@
 <body>
   <h1 id="title">Color Guess</h1>
   <p id="rgb-color"></p>
+  <div id="score" type="hidden"></div>
   <div id="ball-parent">
     <div class="ball"></div>
     <div class="ball"></div>
@@ -20,6 +21,6 @@
   </div>
   <p id="answer"></p>
   <script src="script.js"></script>
-  <button type="reset" id="reset-game" onClick="location.reload()">Resetar o jogo/cores</button>
+  <input type="button" id="reset-game" value="Resetar o jogo/cores" onclick="resetPage()"></button>
 </body>
 </html>

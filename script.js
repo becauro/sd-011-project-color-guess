@@ -1,6 +1,10 @@
 const coloredCircleList = document.querySelectorAll('.ball');
 const rightAnswer = document.getElementById('rgb-color');
 const answerTag = document.getElementById('answer');
+const score = document.getElementById('score');
+let scoreValue = 0;
+localStorage.setItem('score', scoreValue);
+score.innerText = `Placar: ${scoreValue}`;
 answerTag.innerText = 'Escolha uma cor';
 
 const randomColor = () => {
@@ -22,19 +26,33 @@ const setRightAnswer = (array) => {
 };
 setRightAnswer(randomColor());
 
+const getScore = () => {
+  scoreValue = parseFloat(localStorage.getItem('score'));
+  if (answerTag.innerText === 'Acertou!') {
+    scoreValue += 3;
+    console.log(scoreValue);
+    score.innerText = `Placar: ${scoreValue}`;
+    localStorage.setItem('score', scoreValue);
+  }
+};
+
 coloredCircleList.forEach((circle) => {
   circle.addEventListener('click', ({ target }) => {
     if (target.style.backgroundColor.slice(3, target.length) === rightAnswer.innerText) {
       answerTag.innerText = 'Acertou!';
+      getScore();
     } else answerTag.innerText = 'Errou! Tente novamente!';
   });
 });
 
-const resetButton = document.getElementById('reset-game');
-console.log(resetButton);
-document.getElementById('reset-game').addEventListener('click', () => {
-  window.location.reload();
+// const resetButton = document.getElementById('reset-game');
+// resetButton.addEventListener('click', 
+
+function resetPage() {
+  // window.location.reload();
   answerTag.innerText = 'Escolha uma cor';
   randomColor();
   setRightAnswer(randomColor());
-});
+  console.log(localStorage.getItem('score'));
+  score.innerText = `Placar: ${localStorage.getItem('score')}`;
+}
