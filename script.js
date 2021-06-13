@@ -45,14 +45,12 @@ coloredCircleList.forEach((circle) => {
   });
 });
 
-// const resetButton = document.getElementById('reset-game');
-// resetButton.addEventListener('click', 
-
 function resetPage() {
-  // window.location.reload();
   answerTag.innerText = 'Escolha uma cor';
   randomColor();
   setRightAnswer(randomColor());
   console.log(localStorage.getItem('score'));
   score.innerText = `Placar: ${localStorage.getItem('score')}`;
 }
+
+document.getElementById('reset-game').addEventListener('click', resetPage);
