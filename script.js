@@ -53,4 +53,5 @@ function resetPage() {
   score.innerText = `Placar: ${localStorage.getItem('score')}`;
 }
 
-document.getElementById('reset-game').addEventListener('click', resetPage);
+const resetButton = document.getElementById('reset-game');
+resetButton.addEventListener('click', resetPage);
