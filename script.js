@@ -32,7 +32,7 @@ coloredCircleList.forEach((circle) => {
 
 const resetButton = document.getElementById('reset-game');
 console.log(resetButton);
-resetButton.addEventListener('click', () => {
+document.getElementById('reset-game').addEventListener('click', () => {
   window.location.reload();
   answerTag.innerText = 'Escolha uma cor';
   randomColor();
