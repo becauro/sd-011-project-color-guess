@@ -13,7 +13,7 @@ function randomRgb() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  return 'rgb(' + r + ',' + g + ',' + b + ')';
+  return `rgb(${r},${g},${b})`;
 }
 
 function getBackgroundColor() {
@@ -30,24 +30,20 @@ function getBackGroundValue() {
   for (let i = 0; i < balls.length; i += 1) {
     prop.push(balls[i].style.background);
   }
-  const result =  prop.sort();
+  const result = prop.sort();
   return result[0];
 }
-// console.log(getBackGroundValue());
 
 function handleRgbValue() {
   const element = document.getElementById('rgb-color');
-  element.innerHTML = getBackGroundValue().replace('rgb', "");
+  element.innerHTML = getBackGroundValue().replace('rgb', '');
 }
 handleRgbValue();
 
-function clickBalls() {
-  const balls = document.querySelectorAll('.ball');
-  for (let i = 0; i < balls.length; i += 1) {
-    balls[i].addEventListener('click', trueOrFalse);
-  }
+function storageScore() {
+  const score = document.getElementById('score');
+  sessionStorage.setItem('score', score.innerHTML);
 }
-clickBalls();
 
 function trueOrFalse(event) {
   const bgValue = getBackGroundValue();
@@ -63,18 +59,16 @@ function trueOrFalse(event) {
   }
 }
 
+function clickBalls() {
+  const balls = document.querySelectorAll('.ball');
+  for (let i = 0; i < balls.length; i += 1) {
+    balls[i].addEventListener('click', trueOrFalse);
+  }
+}
+clickBalls();
+
 function reload() {
   getBackgroundColor();
   handleRgbValue();
   document.getElementById('answer').innerHTML = 'Escolha uma cor';
 }
-
-function storageScore() {
-  const score = document.getElementById('score');
-  sessionStorage.setItem('score', score.innerHTML)
-}
-
-// window.onload = function() {
-//   const score = document.getElementById('score');
-//   score.innerHTML = sessionStorage.getItem('score');
-// }
